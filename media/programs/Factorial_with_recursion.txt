@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+long int fact(int n);
+void main()
+{
+    int n;
+    printf("Enter the positive number to find the factorial:");
+    scanf("%d",&n);
+    printf("Factorial of the number %d using recurssion is:%ld",n,fact(n));
+    getch();
+}
+
+long int fact(int n)
+{
+    if(n>=1)
+        return n*fact(n-1);
+    else
+      return 1;
+      
+}

@@ -1,0 +1,33 @@
+// C program to generate and print first N FIBONACCI numbers in the series//
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+    int n,fib1=0,fib2=1,fib3;
+    //clrscr();
+    printf("Enter the number of elements in the fibonacci series:");
+    scanf("%d",&n);
+    if(n==0)
+        printf("There are no elements:");
+    else if (n==1)
+        printf("%d",fib1);
+    else if (n==2)
+        {
+            printf("%d",fib1);
+            printf("\n%d",fib2);
+        }
+    else
+        {
+            printf("%d",fib1);
+            printf("\n%d",fib2);
+            for(int i=2;i<n;i++)
+            {
+                fib3=fib1+fib2;
+                printf("\n%d",fib3);
+                fib1=fib2;
+                fib2=fib3;
+            }
+        }
+}

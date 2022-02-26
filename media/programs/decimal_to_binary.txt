@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+void
+main ()
+{
+  int n,binary=0,r,pos=1; 
+  /* 
+  * Here n is input by user 
+  * r will be the reminder 
+  * pos will give position
+  * binary will be the output 
+  */ 
+  
+  printf ("Enter a decimal number: ");
+  scanf ("%d", &n);
+  while (n!=0) {
+    r = n % 2;
+    n /= 2;
+    binary += r * pos;
+    pos *= 10;
+  }
+    printf("%d",binary);
+}

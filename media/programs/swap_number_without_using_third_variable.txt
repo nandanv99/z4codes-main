@@ -1,0 +1,14 @@
+// C program to swap two number using third variable 
+#include <stdio.h>
+int main()
+{
+    int a,b;
+    printf("Enter two integers:");
+    scanf("%d,%d",&a,&b);
+    printf("Before Swapping First variable = %d\n Second variable = %d\n",a,b);
+    a = a + b;
+    b = a - b;
+    a = a - b;
+    printf("After Swapping First variable = %d \n Second variable = %d \n",a,b);
+    return 0;
+}

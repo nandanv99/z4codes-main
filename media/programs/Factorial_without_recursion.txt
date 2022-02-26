@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void main()
+{
+    int n,f,i;
+    printf("Enter the positive number to find the factorial;");
+    scanf("%d",&n);
+    f=1;
+    for(i=1;i<=n;i++)
+     {
+         f=f*i; //i=1 -> f=1*1=1 //i=2 -> f=1*2=2 //i=3 ->f=2*3
+     }
+    printf("Factorial of the number %d without using recurssion is: %d",n,f);
+}

@@ -1,0 +1,26 @@
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+    float a,r,temp,sum=0;
+    int n;
+    //clrscr();
+    printf("Enter the number of elements in the G.P. series:");
+    scanf("%d",&n);
+    printf("Enter the first element of the G.P. series:");
+    scanf("%f",&a);
+    printf("Enter the common ratio of the G.P. series:");
+    scanf("%f",&r);
+    printf("The element of G.P. series are:");
+    temp=a;
+    for(int i=1;i<=n;i++)
+    {
+        temp=temp*r;
+        printf("\t%f",temp);
+        sum=sum+temp;
+    }
+    printf("\nThe sum of G.P. series is %f",sum);
+    getch();
+}

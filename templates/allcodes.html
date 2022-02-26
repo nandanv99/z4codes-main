@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Programs</title>
+    
+    <!-- <link rel="stylesheet" type="text/css" href="{% static "css/loader.css" %}"/> -->
+    <style>
+      .float {
+			position: fixed;
+			width: 75px;
+      height: 75px;
+      bottom: 20px;
+      padding-top: 6px;
+			right: 20px;
+			background-color: rgb(238, 98, 98);
+			color: #FFF;
+			border-radius: 10px;
+			text-align: center;
+			box-shadow: 2px 2px 2px 2px rgb(59, 59, 59);
+			z-index: 1;
+			font-size: 105%;
+      transition: 0.5s;
+		}
+
+		.float:hover {
+			transition: 0.5s;
+			box-shadow: 2px 2px 2px 2px rgb(59, 59, 59);
+      color: #FFF;
+		}
+    .float:active {
+      box-shadow: box-shadow
+        7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+      transform: translateY(10px);
+      /* Moving button 4px to y-axis */
+      }
+      .loader-wrapper {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #242f3f;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -2.7em;
+        margin-left: -2.7em;
+        width: 5.4em;
+        height: 5.4em;
+        background-color: #242f3f;
+      }
+
+      #hill {
+        position: absolute;
+        width: 7.1em;
+        height: 7.1em;
+        top: 1.7em;
+        left: 1.7em;
+        background-color: transparent;
+        border-left: .25em solid whitesmoke;
+        transform: rotate(45deg);
+      }
+
+      #hill:after {
+        content: '';
+        position: absolute;
+        width: 7.1em;
+        height: 7.1em;
+        left: 0;
+        background-color: #242f3f;
+      }
+
+      #box {
+        position: absolute;
+        left: 0;
+        bottom: -.1em;
+        width: 1em;
+        height: 1em;
+        background-color: transparent;
+        border: .25em solid whitesmoke;
+        border-radius: 15%;
+        transform: translate(0, -1em) rotate(-45deg);
+        animation: push 2.5s cubic-bezier(.79, 0, .47, .97) infinite;
+      }
+
+      @keyframes push {
+        0% {
+          transform: translate(0, -1em) rotate(-45deg);
+        }
+        5% {
+          transform: translate(0, -1em) rotate(-50deg);
+        }
+        20% {
+          transform: translate(1em, -2em) rotate(47deg);
+        }
+        25% {
+          transform: translate(1em, -2em) rotate(45deg);
+        }
+        30% {
+          transform: translate(1em, -2em) rotate(40deg);
+        }
+        45% {
+          transform: translate(2em, -3em) rotate(137deg);
+        }
+        50% {
+          transform: translate(2em, -3em) rotate(135deg);
+        }
+        55% {
+          transform: translate(2em, -3em) rotate(130deg);
+        }
+        70% {
+          transform: translate(3em, -4em) rotate(217deg);
+        }
+        75% {
+          transform: translate(3em, -4em) rotate(220deg);
+        }
+        100% {
+          transform: translate(0, -1em) rotate(-225deg);
+        }
+      }
+    </style>
+    <style>
+        body{
+          /* background: #16222A;
+          background: -webkit-linear-gradient(to right, #3A6073, #16222A); 
+          background: linear-gradient(to right, #3A6073, #16222A);  */
+          background: linear-gradient(-45deg, #f5f1f1fa, #3A6073, #16222A, #000000fa);
+          background-size: 400% 400%;
+          animation: gradient 15s ease infinite;
+        }
+        body::-webkit-scrollbar {
+          display: none;
+        }
+        .dark-mode {
+          background-color: white;
+          color: black;
+        }
+        .modal-content{
+          background-color: rgb(49, 49, 49) !important;
+          color: #FFF;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .card{
+            box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+            border-radius: 10px;
+            height: 14rem;
+            margin-bottom: 20px;
+        }
+        .card1{
+          box-shadow: 10px 6px 10px 10px rgba(0,0,0,0.2);
+          border-radius: 10px;
+          height: 80px;
+          margin-bottom: 20px;
+        }
+        .shcod:hover{
+          background-color:#16222A;
+          color: white;
+          border-radius: 0px !important;
+          transition:0.2s;
+          font-size:smaller;
+        }
+        @media only screen and (max-width: 600px) {
+            .card{
+              width:100%;
+                height: 90%;
+                padding-bottom: 20px;
+            }
+            p{
+              font-size:20px;
+            }
+            .card-header{
+              font-size: 30px !important;
+            }
+            .services{
+              align-items: center !important;
+            }
+        }
+        .form-control-borderless {
+            border: none;
+        }
+
+        .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        ::placeholder{
+          color:white !important;
+        }
+        
+        
+        @media only screen and (min-device-width: 768px) {
+        .card{
+          width:100%;
+          height:95%;
+          font-size:18px;
+          /* padding-bottom: 20px; */
+          /* margin-bottom: 20px !important; */
+        }  
+    }
+    </style>
+    
+  </head>
+  <body>
+    <div class="container mt-3">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <form class="card1 card-sm" method="get" action="/search">
+              {% csrf_token %}
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col">
+                        <input class="bg-transparent form-control form-control-lg form-control-borderless text-white" type="search" name="search" placeholder="Search Codes">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-light" type="submit" style="border-radius:50%"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    <!-- Add code toggle button -->
+    <a href="#" class="float " id="mdl" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+      class="fas fa-plus fa-2x my-float"></i><br />Code</a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" style="width:100%;">
+      <div class="modal-dialog modal-dialog-centered">
+       
+        <div class="modal-content">
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          <!-- <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+          </div> -->
+          <div class="modal-body">
+            <h2 class="text-center" style="font-family: monospace;"> Can't find code !</h2>
+            <h6 class="text-center" style="color: rgb(116, 214, 107);">(* live)</h6>
+            <form method="post" action="/sendingreq">
+              {% csrf_token %}
+              <div class="form-group">
+                <!-- <label for="recipient-name" class="col-form-label" style="outline: none;">Name:</label> -->
+                <input type="text" class="border-0 bg-transparent form-control text-white" id="recipient-name" placeholder="Your Name" name="username" style="border-bottom: 1px solid white !important; height: 3rem; font-size: larger;" required>
+              </div>
+              <br>
+              <div class="form-group">
+                <!-- <label for="message-text" class="col-form-label">Code name :</label> -->
+                <!-- <textarea class=" border-0 form-control" id="message-text"></textarea> -->
+                <input type="text" class="border-0 bg-transparent form-control text-white mb-3" id="recipient-name" placeholder="Code name :" name="desc" style="border-bottom: 1px solid white !important; height: 3rem; font-size:larger;" required>
+
+              </div>
+            
+            <small style="color:aliceblue">* The code will be up to you with in 24 hrs.</small>
+            <br>
+            <br>
+            <div class="row w-90">
+              <button class="btn btn-danger text-white " type="button" style="background:rgb(59, 59, 59) ; width:50%" aria-label="Close" data-bs-dismiss="modal">cancel</button>
+              <button class="btn btn-success " type="submit"  style="width: 50%;" >Ask for code </button>
+            </div>
+          </form>
+          </div>
+          <!-- <div class="modal-footer">  
+          </div> -->
+          
+        </div>
+      </div>
+    </div>
+
+      
+    <section class="services">
+    <div class="container pt-3 py-4">
+        <div class="row">
+        {% for i in programs|slice:"0:" %}
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card bg-dark text-white">
+              <div class="card-header text-center" style="">
+                <h6 style="font-size: 25px;">{{ i.fullname }}</h6>
+              </div>
+                <div class="card-body d-flex flex-column">
+                  <!-- <h4 class="card-title text-center">{{ i.fullname }}</h4> -->
+                  <p class="card-text text-center">{{ i.description }}</p>
+                </div>
+                <div class="card-footer ">
+                  <div class="text-center">
+                    <div class=" btn-group " role="group" aria-label="Button group with nested dropdown" style="width:70%;">
+                      <!-- <a href="/media/{{i.codefile}}" class="btn btn-light">SHOW CODE</a> -->
+                      <hr>
+                      <a href="/showcode/{{i.id}}" class="mt-auto btn btn-light shcod" style="border-radius: 20px;"> SHOW CODE</a>
+                      <div class="btn-group pl-2" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn  btn-dark btn-outline-light" style="border-radius: 20px;" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                          <li><a class="dropdown-item" href="{{i.codeurl}}">Run Code</a></li>
+                          <li><a class="dropdown-item" href="{{i.codefile.url}}" download="">Download</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        {% endfor %}
+    </div>
+    </div>
+  </section>
+
+
+    <div class="loader-wrapper">
+      <div id="loader">
+        <div id="box"></div>
+        <div id="hill"></div>
+      </div>
+    </div>
+
+    <script>
+      $(window).on("load",function(){
+        $("body").hide();
+        $('#mdl').hide();
+        $('.loader-wrapper').delay(1000).fadeOut("slow");
+        $("body").show();
+        $('#mdl').show();
+      });
+
+      function darkmode() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
