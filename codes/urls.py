@@ -8,6 +8,6 @@ urlpatterns = [
     path('showcode/<int:id>', views.showcode),
     path('search', views.search),
     path('portfolio', views.cv),
-    path('signup',views.signup),
+    path('register',views.signup),
     path('sendingreq', views.mailapi),
 ]

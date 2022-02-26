@@ -42,7 +42,7 @@ def showcode(request,id):
 
 
 def signup(request):
-    return render(request,"signup.html")
+    return render(request,"register.html")
 
 
 def books(request):
