@@ -6,6 +6,9 @@ from .models import exp, newcodes
 from django.core.mail import send_mail
 from django.conf import settings
 
+
+#data sheet for user
+# https://docs.google.com/spreadsheets/d/e/2PACX-1vT11YCk4k1K_anGnGmDQCUncujTmeIYAdC5aezURJM9CVlARhenVrtf5R2AD80eTdlqqmGRHDysR1qe/pubhtml?gid=0&single=true
 # Create your views here.
 
 def Home(request):   
