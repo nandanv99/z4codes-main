@@ -28,9 +28,8 @@
                                             <h4 class="mb-4 pb-3">Log In</h4>
                                             <div class="form-group"> <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"> <i class="input-icon uil uil-at"></i> </div>
                                             <div class="form-group mt-2">
-                                            <form>
                                             <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"> <i class="input-icon uil uil-lock-alt"></i> </div> <a href="#" class="btn mt-4">submit</a>
-                                            <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
+                                            <p class="mb-0 mt-4 text-center"><a href="https://docs.google.com/spreadsheets/d/1dR1QxQfCFWSL5PIe5a6xoVP5m2fzZgzQpawRkUN-jdE/edit?usp=sharing" class="link">Check if you already added ?</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -38,9 +37,19 @@
                                     <div class="center-wrap">
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3">Sign Up</h4>
-                                            <div class="form-group"> <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off"> <i class="input-icon uil uil-user"></i> </div>
-                                            <div class="form-group mt-2"> <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"> <i class="input-icon uil uil-at"></i> </div>
-                                            <div class="form-group mt-2"> <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"> <i class="input-icon uil uil-lock-alt"></i> </div> <a href="#" class="btn mt-4">submit</a>
+                                        <form action="/addetails" method="get">
+                                            {% comment %} {% csrf_token %} {% endcomment %}
+                                            <div class="form-group"> 
+                                                <input type="text" name="name" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off"> <i class="input-icon uil uil-user"></i> 
+                                            </div>
+                                            <div class="form-group mt-2"> 
+                                                <input type="text" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"> <i class="input-icon uil uil-at"></i> 
+                                            </div>
+                                            <div class="form-group mt-2"> 
+                                                <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"> <i class="input-icon uil uil-lock-alt"></i> 
+                                            </div> 
+                                            <button type="submit" class="btn mt-4">submit</button>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>

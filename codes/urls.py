@@ -10,4 +10,5 @@ urlpatterns = [
     path('portfolio', views.cv),
     path('register',views.signup),
     path('sendingreq', views.mailapi),
+    path('addetails',views.register),
 ]

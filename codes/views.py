@@ -11,8 +11,11 @@ from googleapiclient.errors import HttpError
 from google.oauth2 import service_account
 
 
-#data sheet for user
-# https://docs.google.com/spreadsheets/d/e/2PACX-1vT11YCk4k1K_anGnGmDQCUncujTmeIYAdC5aezURJM9CVlARhenVrtf5R2AD80eTdlqqmGRHDysR1qe/pubhtml?gid=0&single=true
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+SERVICE_ACCOUNT_FILE = 'keys.json'
+creds = None
+creds = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 # Create your views here.
 
 def Home(request):   
@@ -69,3 +72,29 @@ def mailapi(request):
         return(render(request,"reqsend.html",param))
     else:
         return(print("mail not sent"))
+
+
+def register(request):
+    name=request.GET.get('name')
+    email=request.GET.get('logemail')
+    password=request.GET.get('logpass')
+    print(name,email,password)
+    SAMPLE_SPREADSHEET_ID = '1dR1QxQfCFWSL5PIe5a6xoVP5m2fzZgzQpawRkUN-jdE'
+    try:
+        service = build('sheets', 'v4', credentials=creds)
+        sheet = service.spreadsheets()
+        result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                                    range="details!A1:B500").execute()
+        values = result.get('values', [])
+        print(values)
+    except HttpError as err:
+        print(err)
+
+    dic=[[name,email,password]]
+
+    request = sheet.values().append(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                                    range="details!A1:B500", 
+                                    valueInputOption="USER_ENTERED",
+                                    body={"values":dic}).execute()
+    print("Succesfull added")
+    return render(request,"register.html")
