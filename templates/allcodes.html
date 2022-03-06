@@ -20,7 +20,7 @@
       bottom: 20px;
       padding-top: 6px;
 			right: 20px;
-			background-color: rgb(238, 98, 98);
+			background-color: rgb(62 62 62);
 			color: #FFF;
 			border-radius: 10px;
 			text-align: center;
@@ -28,16 +28,12 @@
 			z-index: 1;
 			font-size: 105%;
       transition: 0.5s;
+      text-decoration:none;
 		}
 
-		.float:hover {
-			transition: 0.5s;
-			box-shadow: 2px 2px 2px 2px rgb(59, 59, 59);
-      color: #FFF;
-		}
     .float:active {
-      box-shadow: box-shadow
-        7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+      {% comment %} box-shadow: box-shadow
+        7px 6px 28px 1px rgba(0, 0, 0, 0.24); {% endcomment %}
       transform: translateY(10px);
       /* Moving button 4px to y-axis */
       }
@@ -245,8 +241,8 @@
         </div>
 
     <!-- Add code toggle button -->
-    <a href="#" class="float " id="mdl" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-      class="fas fa-plus fa-2x my-float"></i><br />Code</a>
+    <a href="#" class="float btn-outline-light" id="mdl" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+      class="fas fa-terminal fa-2x my-float"></i><br />Request</a>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" style="width:100%;">
