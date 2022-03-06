@@ -22,12 +22,11 @@ creds = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 # Create your views here.
 # k={"name":z}
-z1={'name':"login here"}
+z1={'name':"Login/Signup"}
 def Home(request):   
     # request.session['username']=session_var()
-    request.session['name']=z1['name']
-    print(z1['name'])
-    
+    request.session['username']=z1['name']
+    print(z1['name'])    
     return render(request,"index.html")
 
 def code(request):

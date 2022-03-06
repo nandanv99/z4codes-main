@@ -94,10 +94,10 @@
         <ul class="nav justify-content-end">
           <li class="nav-item">
             {% comment %} <a class="btn btn-light codes mr-2" style="font-size:larger;" href="/codes">Login</a> {% endcomment %}
-            {% if username is None%}
+            {% if request.session.username is None %}
             <a class="mr-4 btn btn-outline-light codes" style="font-size:unset; text-decoration:none;" href="/register">Login/Signup</a>
             {% else %}
-            <a class="mr-4 btn btn-outline-light codes" style="font-size:unset; text-decoration:none;" href="/logout">{{request.session.name}}</a>
+            <a class="mr-4 btn btn-outline-light codes" style="font-size:unset; text-decoration:none;" href="/logout">{{request.session.username}}</a>
             {% endif %}
           </li>
         </ul>
