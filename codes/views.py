@@ -124,4 +124,6 @@ def signin(request):
         if(i[0].upper()==name.upper() and i[1]==password):
             print("Founded")
             break
+        else:
+            print("User not found")
     return render(request,"register.html")
