@@ -12,4 +12,5 @@ urlpatterns = [
     path('sendingreq', views.mailapi),
     path('addetails',views.register),
     path('signin',views.signin),
+    path('logout',views.logout_view),
 ]

@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.db.models.fields import NullBooleanField
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import exp, newcodes,user1
 from django.core.mail import send_mail
 from django.conf import settings
@@ -21,8 +21,13 @@ creds = None
 creds = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 # Create your views here.
-
+# k={"name":z}
+z1={'name':"login here"}
 def Home(request):   
+    # request.session['username']=session_var()
+    request.session['name']=z1['name']
+    print(z1['name'])
+    
     return render(request,"index.html")
 
 def code(request):
@@ -137,11 +142,15 @@ def signin(request):
             # if user is not None:
             #     login(request, user)
             #     print("login1")
-            return HttpResponse("login successfully")
+            request.session['username']=name
+            z1['name']=name
+            # userdet={'username':name}
+            return redirect('/')
         else:
             print("User not found")
     return HttpResponse("error")
 
 def logout_view(request):
-    logout(request)
-    return HttpResponse("Logout successfully")
+    if(request.session.has_key('username')):
+        request.session.flush()
+    return render(request,"index.html")
