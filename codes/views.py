@@ -79,7 +79,7 @@ def register(request):
     name=request.GET.get('name')
     # email=request.GET.get('logemail')
     password=request.GET.get('logpass')
-    print(name,password)
+    # print(name,password)
     SAMPLE_SPREADSHEET_ID = '1dR1QxQfCFWSL5PIe5a6xoVP5m2fzZgzQpawRkUN-jdE'
     try:
         service = build('sheets', 'v4', credentials=creds)
@@ -87,7 +87,7 @@ def register(request):
         result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                                     range="details!A1:B500").execute()
         values = result.get('values', [])
-        print(values)
+        # print(values)
     except HttpError as err:
         print(err)
     dic=[[name,password]]
@@ -103,4 +103,25 @@ def register(request):
                                     body={"values":dic}).execute()
 
     print("Succesfull added")
+    return render(request,"register.html")
+
+
+
+def signin(request):
+    name=request.GET.get('logname')
+    password=request.GET.get('logpass')
+    print(name,password)
+    SAMPLE_SPREADSHEET_ID = '1dR1QxQfCFWSL5PIe5a6xoVP5m2fzZgzQpawRkUN-jdE'
+    try:
+        service = build('sheets', 'v4', credentials=creds)
+        sheet = service.spreadsheets()
+        result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                                    range="passwords!A1:B500").execute()
+        values = result.get('values', [])
+    except HttpError as err:
+        print(err)
+    for i in values:
+        if(i[0].upper()==name.upper() and i[1]==password):
+            print("Founded")
+            break
     return render(request,"register.html")
