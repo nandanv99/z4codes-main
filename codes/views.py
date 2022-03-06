@@ -137,10 +137,10 @@ def signin(request):
             # if user is not None:
             #     login(request, user)
             #     print("login1")
-            break
+            return HttpResponse("login successfully")
         else:
             print("User not found")
-    return HttpResponse("login successfully")
+            return HttpResponse("incorrect credentials")
 
 def logout_view(request):
     logout(request)
