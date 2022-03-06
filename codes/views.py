@@ -140,7 +140,7 @@ def signin(request):
             return HttpResponse("login successfully")
         else:
             print("User not found")
-            return HttpResponse("incorrect credentials")
+    return HttpResponse("error")
 
 def logout_view(request):
     logout(request)
