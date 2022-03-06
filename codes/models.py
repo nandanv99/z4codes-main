@@ -21,3 +21,10 @@ class exp(models.Model):
 
     def __str__(self) -> str:
         return self.fullname
+
+class user1(models.Model):
+    name = models.AutoField
+    passwor = models.CharField(max_length=200)
+    
+    def __str__(self) -> str:
+        return self.name

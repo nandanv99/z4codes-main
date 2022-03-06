@@ -1,11 +1,14 @@
 from django.contrib import messages
 from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
-from .models import exp, newcodes
+from .models import exp, newcodes,user1
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.hashers import make_password,check_password
-
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponse
+from django.contrib.auth import logout
+from django.contrib.auth.models import User
 # Google sheets api imports
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -109,8 +112,8 @@ def register(request):
 
 def signin(request):
     name=request.GET.get('logname')
-    password=request.GET.get('logpass')
-    print(name,password)
+    passw=request.GET.get('logpass')
+    print(name,passw)
     SAMPLE_SPREADSHEET_ID = '1dR1QxQfCFWSL5PIe5a6xoVP5m2fzZgzQpawRkUN-jdE'
     try:
         service = build('sheets', 'v4', credentials=creds)
@@ -120,10 +123,25 @@ def signin(request):
         values = result.get('values', [])
     except HttpError as err:
         print(err)
+
     for i in values:
-        if(i[0].upper()==name.upper() and i[1]==password):
+        if(i[0].upper()==name.upper() and i[1]==passw):
             print("Founded")
+            # user1 = User.objects.create_user(name, 'example@gmail.com', passw)
+            # user1.name=name
+            # user1.passwor=passw
+            # user1.save()
+            # print("hello")
+            # user = authenticate(username=name, password=passw)
+            # print("loged in")
+            # if user is not None:
+            #     login(request, user)
+            #     print("login1")
             break
         else:
             print("User not found")
-    return render(request,"register.html")
+    return HttpResponse("login successfully")
+
+def logout_view(request):
+    logout(request)
+    return HttpResponse("Logout successfully")
