@@ -92,7 +92,7 @@
     
     <div class="banner-area" >
       <nav class="navbar navbar-expand-md navbar-light bg-trans pt-3 pr-5 pl-5">
-        <div class="container-fluid">
+        <div class="container">
           <a class="navbar-brand text-white" href="/">Z4_CODES</a>
           <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -117,9 +117,9 @@
               <li class="nav-item">
                 {% comment %} <a class="btn btn-light codes mr-2" style="font-size:larger;" href="/codes">Login</a> {% endcomment %}
                 {% if request.session.username is None %}
-                <a class="mr-4 btn btn-outline-light codes" style="font-size:unset; text-decoration:none;" href="/register">Login/Signup</a>
+                <a class="btn btn-outline-light codes" style="font-size:unset; text-decoration:none;" href="/register">Login/Signup</a>
                 {% else %}
-                <a class="mr-4 btn btn-outline-light codes" style="font-size:unset; text-decoration:none;" href="/logout">{{request.session.username}}</a>
+                <a class="btn btn-outline-light codes" style="font-size:unset; text-decoration:none;" href="/logout">{{request.session.username}}</a>
                 {% endif %}
               </li>
             </ul>
