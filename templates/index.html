@@ -89,8 +89,44 @@
     
   </style>
   <body class="bg-dark">
-    <div class="banner-area pt-3 " >
-      <div class="customnav  ">
+    
+    <div class="banner-area" >
+      <nav class="navbar navbar-expand-md navbar-light bg-trans pt-3 pr-5 pl-5">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="/">Z4_CODES</a>
+          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+          <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ">
+              <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+              <a class="nav-link text-white" href="#">Features</a>
+              <a class="nav-link text-white" href="#">Pricing</a>
+            </div>
+          </div> -->
+          <!-- <ul class="nav justify-content-center pt-3 pr-5 pl-5">
+            <li class="nav-item">
+              <a class="nav-link active text-white " aria-current="page" href="#">Teacher</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="#">Student</a>
+            </li>
+          </ul> -->
+          <div class="customnav  ">
+            <ul class="nav justify-content-end ">
+              <li class="nav-item">
+                {% comment %} <a class="btn btn-light codes mr-2" style="font-size:larger;" href="/codes">Login</a> {% endcomment %}
+                {% if request.session.username is None %}
+                <a class="mr-4 btn btn-outline-light codes" style="font-size:unset; text-decoration:none;" href="/register">Login/Signup</a>
+                {% else %}
+                <a class="mr-4 btn btn-outline-light codes" style="font-size:unset; text-decoration:none;" href="/logout">{{request.session.username}}</a>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- <div class="customnav  ">
         <ul class="nav justify-content-end">
           <li class="nav-item">
             {% comment %} <a class="btn btn-light codes mr-2" style="font-size:larger;" href="/codes">Login</a> {% endcomment %}
@@ -101,7 +137,7 @@
             {% endif %}
           </li>
         </ul>
-      </div>
+      </div> -->
 
       <div class="content-area " style="font-size:30px">
         <div class="content">
