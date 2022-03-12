@@ -1,3 +1,4 @@
+import re
 from django.contrib import messages
 from django.db.models.fields import NullBooleanField
 from django.shortcuts import redirect, render
@@ -36,10 +37,14 @@ def code(request):
 
 def search(request):
     querrycode=request.GET.get('search')
+    university=request.GET['university']
+    branch=request.GET['branch']
+    subject=request.GET['subject']
+    sem=request.GET['sem']
     programs=newcodes.objects.filter(fullname__contains=querrycode);
     if len(programs)==0:
         k="Nothing found "
-    params={'searched':querrycode,'programs':programs,'range':range(0,len(programs))}
+    params={'searched':querrycode,'programs':programs,'range':range(0,len(programs)),'university':university,'branch':branch,'subject':subject,'sem':sem}
     return render(request,"search.html",params)
 
 def cv(request):
@@ -153,3 +158,7 @@ def logout_view(request):
     if(request.session.has_key('username')):
         request.session.flush()
     return render(request,"index.html")
+
+def searchpage(request):   
+    # messages.success("cool")
+    return render(request,"search2.html")
