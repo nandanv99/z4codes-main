@@ -58,7 +58,16 @@
       {% load static %}
       {% if searched %}
       <h1 class="text-white text-center py-3">You searched for: {{searched}}</h1>
-      <div class="container pt-5">
+      <div class="container ">
+        <div class="card py-3 px-3" style="height: auto; background: -webkit-linear-gradient(to right, #3A6073, #16222A); background: linear-gradient(to right, #3A6073, #16222A);">
+          <h6 class="" style="color: #d4d2d2;">University : {{ university }}</h6>
+          <h6 class=" " style="color: #d4d2d2;">Branch : {{ branch }}</h6>
+          <h6 class="" style="color: #d4d2d2;">Subject : {{ subject }}</h6>
+          <h6 class="" style="color: #d4d2d2;">Semester : sem ( {{ sem }} )</h6>
+        </div>
+      </div>
+      
+      <div class="container ">
         <div class="row">
         {% for i in programs|slice:"0:" %}
         <div class="col-12 col-sm-6 col-lg-4">
