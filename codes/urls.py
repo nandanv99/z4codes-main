@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('', views.Home),
     path('codes', views.code),
@@ -13,4 +14,6 @@ urlpatterns = [
     path('addetails',views.register),
     path('signin',views.signin),
     path('logout',views.logout_view),
+    path('srpage',views.searchpage),
+    
 ]
