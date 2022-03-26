@@ -53,6 +53,31 @@
     <link href="css/main.css" rel="stylesheet" />
   </head>
   <body class="css-selector">
+    <nav class="navbar navbar-expand-md navbar-light bg-trans pt-3 pr-5 pl-5">
+      <div class="container">
+        <a class="navbar-brand text-white" href="/">Z4_CODES</a>
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+        <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+            <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+            <a class="nav-link text-white" href="#">Features</a>
+            <a class="nav-link text-white" href="#">Pricing</a>
+          </div>
+        </div> -->
+        <!-- <ul class="nav justify-content-center pt-3 pr-5 pl-5">
+          <li class="nav-item">
+            <a class="nav-link active text-white " aria-current="page" href="#">Teacher</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="#">Student</a>
+          </li>
+        </ul> -->
+        <div class="customnav  ">
+        </div>
+      </div>
+    </nav>
     <div class="s010">
       <form action="/search" method="get">
         <div class="inner-form">
@@ -146,7 +171,7 @@
             <div class="row third">
               <div class="input-field">
                 <div class="result-count">
-                  <span>108 </span>results</div>
+                  <span>{{ range }}</span>results</div>
                 <div class="group-btn">
                   <button class="btn-delete" type="reset" id="delete">RESET</button>
                   <button class="btn-search text-black">SEARCH</button>

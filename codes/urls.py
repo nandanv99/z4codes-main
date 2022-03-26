@@ -15,5 +15,6 @@ urlpatterns = [
     path('signin',views.signin),
     path('logout',views.logout_view),
     path('srpage',views.searchpage),
+    path('search1', views.search1),
     
 ]

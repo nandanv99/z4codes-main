@@ -161,4 +161,18 @@ def logout_view(request):
 
 def searchpage(request):   
     # messages.success("cool")
-    return render(request,"search2.html")
+    programs=newcodes.objects.all()
+    params={'range':programs.count()}
+    return render(request,"search2.html",params)
+
+def search1(request):
+    querrycode=request.GET.get('search')
+    # university=request.GET['university']
+    # branch=request.GET['branch']
+    # subject=request.GET['subject']
+    # sem=request.GET['sem']
+    programs=newcodes.objects.filter(fullname__contains=querrycode);
+    if len(programs)==0:
+        k="Nothing found "
+    params={'searched':querrycode,'programs':programs,'range':range(0,len(programs))}
+    return render(request,"search.html",params)
