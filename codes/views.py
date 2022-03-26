@@ -44,6 +44,10 @@ def search(request):
     programs=newcodes.objects.filter(fullname__contains=querrycode);
     if len(programs)==0:
         k="Nothing found "
+        print("noting found from name ",querrycode)
+        programs=newcodes.objects.filter(description__contains=querrycode);
+        if(len(programs)!=0):
+            print("found from description :",querrycode)
     params={'searched':querrycode,'programs':programs,'range':range(0,len(programs)),'university':university,'branch':branch,'subject':subject,'sem':sem}
     return render(request,"search.html",params)
 
@@ -172,7 +176,12 @@ def search1(request):
     # subject=request.GET['subject']
     # sem=request.GET['sem']
     programs=newcodes.objects.filter(fullname__contains=querrycode);
+    # programs1=newcodes.objects.filter(description__contains=querrycode);
     if len(programs)==0:
         k="Nothing found "
+        print("noting found from fullname ",querrycode)
+        programs=newcodes.objects.filter(description__contains=querrycode);
+        if(len(programs)!=0):
+            print("found from description :",querrycode)
     params={'searched':querrycode,'programs':programs,'range':range(0,len(programs))}
     return render(request,"search.html",params)

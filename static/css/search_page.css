@@ -811,7 +811,8 @@ html {
   }
   
   .s010 {
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    /* margin-top: 60vh; */
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;
@@ -846,7 +847,8 @@ html {
     font-size: 18px;
     height: 70px;
     color: black;
-    background: linear-gradient(to right, #000000 0%, #000000 28%, #505050 91%, #8c8c8c 100%);
+    /* background: linear-gradient(to right, #000000 0%, #000000 28%, #505050 91%, #8c8c8c 100%); */
+    background: linear-gradient(90deg, rgba(2,0,31,1) 0%, rgba(0,0,0,1) 74%, rgba(28,28,28,0.9766281512605042) 100%);
     /* background: linear-gradient(to right, #000000, #505050, #8c8c8c);; */
     font-family: 'Lato', sans-serif;
   }
