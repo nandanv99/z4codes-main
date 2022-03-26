@@ -12,8 +12,8 @@ urlpatterns = [
     path('register',views.signup),
     path('sendingreq', views.mailapi),
     path('addetails',views.register),
-    path('signin',views.signin),
-    path('logout',views.logout_view),
+    # path('signin',views.signin),
+    # path('logout',views.logout_view),
     path('srpage',views.searchpage),
     path('search1', views.search1),
     
