@@ -26,9 +26,12 @@ creds = service_account.Credentials.from_service_account_file(
 z1={'name':"Login/Signup"}
 def Home(request):   
     # request.session['username']=session_var()
-    request.session['username']=z1['name']
-    print(z1['name'])    
-    return render(request,"trial.html")
+    # request.session['username']=z1['name']
+    # print(z1['name'])    
+    programs=newcodes.objects.all();
+    print(programs[len(programs)-2])
+    param={'programs':programs,'range':range(0,len(programs),-1),'first':programs[len(programs)-1],'second':programs[len(programs)-2],'third':programs[len(programs)-3]}
+    return render(request,"trial.html",param)
 
 def code(request):
     programs=newcodes.objects.all();
