@@ -28,7 +28,7 @@ def Home(request):
     # request.session['username']=session_var()
     request.session['username']=z1['name']
     print(z1['name'])    
-    return render(request,"index.html")
+    return render(request,"trial.html")
 
 def code(request):
     programs=newcodes.objects.all();
