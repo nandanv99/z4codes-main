@@ -20,6 +20,10 @@
     @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
     @media only screen and (max-width: 600px) {
       .mob-2 {
+        /* display:none !important; */
+        /* margin-top: 30px; */
+      }
+      .mob-1 {
         display:none !important;
       }
     }
@@ -346,14 +350,12 @@
                       </div>
 
                       <div class="conatiner text-center contact" id="contact" ref="div1">
-                        <h1 class="separator mt-5 mb-5">Contact us !</h1>
+                        <h1 class="separator mt-5 mb-5">FEATURES</h1>
                         <div class="row text-center">
-                          <!-- <h1 class="mb-5">You can request for codes.</h1> -->
-                          <div class="col-md-6 my-auto text-center border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                          <!-- <div class="col-md-6 my-auto text-center border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                             <form method="post" action="/sendingreq">
                               {% csrf_token %}
                               <div class="form-group">
-                                <!-- <label for="recipient-name" class="col-form-label" style="outline: none;">Name:</label> -->
                                 <input type="text" class="border-0  form-control  mt-3" id="recipient-name" placeholder="Your Name" name="username" style="border-bottom: 1px solid white !important; height: 3rem; font-size: larger;" required>
                               </div>
                               <br>
@@ -362,16 +364,21 @@
                               </div>
                             <small style="color:aliceblue">* The code will be up to you with in 24 hrs.</small>
                             <div class="row text-center">
-                              <!-- <button class="btn btn-danger text-white " type="button" style="background:rgb(59, 59, 59) ; width:50%" aria-label="Close" data-bs-dismiss="modal">cancel</button> -->
                               <div class="col-12 mt-3 mb-3">
                                 <button class="btn btn-success " type="submit"  style="width: 50%;" >Ask for code </button>
                               </div>
                             </div>
                           </form>
+                          </div> -->
+                          <div class="col-md-6 text-center text-center">
+                            <div class="col-12 text-center mob-1">
+                              <h1 class=" text-center">Downlaod our app ! </h1>
+                              <a href="{% static 'app/z4app.apk' %}"><i class="fa-brands fa-google-play text-white fa-8x mt-2" ></i></a>
+                            </div>
                           </div>
-                          <div class="col-6 text-center mob-2" style="">
-                            <h1 class=" text-center">YOU CAN REQUEST FOR CODE.</h1>
-                            <i class="fas fa-child-reaching fa-8x mt-3"></i>
+                          <div class="col-md-6 text-center mob-2" style="">
+                            <h1 class=" text-center">Ask about codes !</h1>
+                            <i class="fas fa-file-lines fa-8x mt-3"></i>
                           </div>
                         </div>
                       </div>
