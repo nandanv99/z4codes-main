@@ -25,12 +25,10 @@ creds = service_account.Credentials.from_service_account_file(
 # k={"name":z}
 z1={'name':"Login/Signup"}
 def Home(request):   
-    # request.session['username']=session_var()
-    # request.session['username']=z1['name']
-    # print(z1['name'])    
+    direct="/static/app/z4app.apk"  
     programs=newcodes.objects.all();
     # print(programs[len(programs)-2])
-    param={'programs':programs,'range':range(0,len(programs),-1),'first':programs[len(programs)-1],'second':programs[len(programs)-2],'third':programs[len(programs)-3],'range1':programs.count()}
+    param={'programs':programs,'range':range(0,len(programs),-1),'first':programs[len(programs)-1],'second':programs[len(programs)-2],'third':programs[len(programs)-3],'range1':programs.count(),'app':direct}
     return render(request,"trial.html",param)
 
 def code(request):
