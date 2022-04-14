@@ -10,6 +10,29 @@
 
     <title>Collage Materials</title>
   </head>
+  <style>
+    @media only screen and (max-width: 600px) {
+      .mob{
+        display:none;
+      }
+    }
+    @media only screen 
+      and (min-device-width : 768px) 
+      and (max-device-width : 1024px) 
+      and (orientation : portrait) {
+        .mob{
+        display:none;
+      }
+    }
+    @media only screen 
+      and (min-device-width : 768px) 
+      and (max-device-width : 1180px) 
+      and (orientation : landscape) {
+        .mob{
+        display:none;
+        }
+      }
+  </style>
   <body>
     <div class="container-fluid bg-dark mt-3">
       <div class="row my-0">
@@ -36,13 +59,13 @@
                 <small><b>Sem: </b>{{i.sem}}</small>
               </div>
             </div>
-            <div class="row">
-              <div class="col-6">
-                <a href="{{i.files.url}}" style="color:rgb(90, 90, 90)"><i class="fa-solid fa-book-open fa-2x"></i></a>
+            <div class="row text-center ">
+              <div class="col-6 mob">
+                <a href="{{i.files.url}}" class="mob" style="color:rgb(90, 90, 90)"><i class="fa-solid fa-book-open fa-2x"></i></a>
                 <br>
                 <small>View</small>
               </div>
-              <div class="col-6">
+              <div class="col-sm-6 col-12 text-center">
                 <a href="{{i.files.url}}" style="color:gray" download=""><i class="fa-solid fa-download fa-2x" style="color:green"></i></a>
                 
                 <br>
