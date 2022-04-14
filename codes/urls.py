@@ -16,5 +16,6 @@ urlpatterns = [
     # path('logout',views.logout_view),
     path('srpage',views.searchpage),
     path('search1', views.search1),
+    path('open_files', views.open_files),
     
 ]

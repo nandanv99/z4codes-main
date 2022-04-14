@@ -1,8 +1,9 @@
 import re
+from sqlite3 import paramstyle
 from django.contrib import messages
 from django.db.models.fields import NullBooleanField
 from django.shortcuts import redirect, render
-from .models import exp, newcodes,user1
+from .models import exp, newcodes,user1,files
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.hashers import make_password,check_password
@@ -59,6 +60,7 @@ def cv(request):
 def showcode(request,id):
     programs=newcodes.objects.get(id=id)
     fileurl=str(programs.codefile.url)
+    print(fileurl)
     fileurlnew=fileurl.replace('/', '', 1)
     print(fileurl)
     f = open(fileurlnew, 'r')
@@ -123,46 +125,6 @@ def register(request):
 
 
 
-# def signin(request):
-#     name=request.GET.get('logname')
-#     passw=request.GET.get('logpass')
-#     print(name,passw)
-#     SAMPLE_SPREADSHEET_ID = '1dR1QxQfCFWSL5PIe5a6xoVP5m2fzZgzQpawRkUN-jdE'
-#     try:
-#         service = build('sheets', 'v4', credentials=creds)
-#         sheet = service.spreadsheets()
-#         result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-#                                     range="passwords!A1:B500").execute()
-#         values = result.get('values', [])
-#     except HttpError as err:
-#         print(err)
-
-#     for i in values:
-#         if(i[0].upper()==name.upper() and i[1]==passw):
-#             print("Founded")
-#             # user1 = User.objects.create_user(name, 'example@gmail.com', passw)
-#             # user1.name=name
-#             # user1.passwor=passw
-#             # user1.save()
-#             # print("hello")
-#             # user = authenticate(username=name, password=passw)
-#             # print("loged in")
-#             # if user is not None:
-#             #     login(request, user)
-#             #     print("login1")
-#             request.session['username']=name
-#             z1['name']=name
-#             # userdet={'username':name}
-#             return redirect('/')
-#         else:
-#             print("User not found")
-#     return HttpResponse("error")
-
-# def logout_view(request):
-#     if(request.session.has_key('username')):
-#         request.session.flush()
-#     return render(request,"index.html")
-
 def searchpage(request):   
     # messages.success("cool")
     programs=newcodes.objects.all()
@@ -185,3 +147,8 @@ def search1(request):
             print("found from description :",querrycode)
     params={'searched':querrycode,'programs':programs,'range':range(0,len(programs))}
     return render(request,"search.html",params)
+
+def open_files(request):
+    programs=files.objects.get(id=1);
+    param={'prog':programs.files.url}
+    return render(request,"books.html",param)
