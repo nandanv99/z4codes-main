@@ -34,6 +34,8 @@ class files(models.Model):
     files_name=models.CharField(max_length=200)
     files=models.FileField(upload_to='file_pdf/')
     files_desc=models.CharField(max_length=200)
-
+    collage=models.CharField(max_length=200,default='')
+    sem=models.CharField(max_length=5,default='')
+    year=models.CharField(max_length=5,default='')
     def __str__(self) -> str:
         return self.files_name
