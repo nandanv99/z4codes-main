@@ -28,3 +28,9 @@ class user1(models.Model):
     
     def __str__(self) -> str:
         return self.name
+
+class files(models.Model):
+    files_id=models.AutoField
+    files_name=models.CharField(max_length=200)
+    files=models.FileField(upload_to='file_pdf/')
+    files_desc=models.CharField(max_length=200)

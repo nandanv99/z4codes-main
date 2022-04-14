@@ -27,7 +27,6 @@ z1={'name':"Login/Signup"}
 def Home(request):   
     direct="/static/app/z4app.apk"  
     programs=newcodes.objects.all();
-    # print(programs[len(programs)-2])
     param={'programs':programs,'range':range(0,len(programs),-1),'first':programs[len(programs)-1],'second':programs[len(programs)-2],'third':programs[len(programs)-3],'range1':programs.count(),'app':direct}
     return render(request,"trial.html",param)
 
