@@ -152,3 +152,8 @@ def open_files(request):
     programs=files.objects.get(id=1);
     param={'prog':programs.files.url}
     return render(request,"books.html",param)
+
+def all_snippet(request):
+    snippet=files.objects.all()
+    param={'snippet':snippet,'range':range(0,len(snippet))}
+    return render(request,"books.html",param)
