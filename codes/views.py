@@ -43,13 +43,14 @@ def search(request):
     subject=request.GET['subject']
     sem=request.GET['sem']
     programs=newcodes.objects.filter(fullname__contains=querrycode);
+    pdfs=files.objects.filter(files_name__contains=querrycode);
     if len(programs)==0:
         k="Nothing found "
         print("noting found from name ",querrycode)
         programs=newcodes.objects.filter(description__contains=querrycode);
         if(len(programs)!=0):
             print("found from description :",querrycode)
-    params={'searched':querrycode,'programs':programs,'range':range(0,len(programs)),'university':university,'branch':branch,'subject':subject,'sem':sem}
+    params={'searched':querrycode,'pdfs':pdfs,'programs':programs,'range':range(0,len(programs)),'university':university,'branch':branch,'subject':subject,'sem':sem}
     return render(request,"search.html",params)
 
 def cv(request):
@@ -136,8 +137,9 @@ def search1(request):
     # university=request.GET['university']
     # branch=request.GET['branch']
     # subject=request.GET['subject']
-    # sem=request.GET['sem']
+    sem=request.GET['sem']
     programs=newcodes.objects.filter(fullname__contains=querrycode);
+    print(sem)
     # programs1=newcodes.objects.filter(description__contains=querrycode);
     if len(programs)==0:
         k="Nothing found "
