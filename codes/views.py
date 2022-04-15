@@ -129,7 +129,9 @@ def register(request):
 def searchpage(request):   
     # messages.success("cool")
     programs=newcodes.objects.all()
-    params={'range':programs.count()}
+    pdf=files.objects.all()
+    total=programs.count()+pdf.count()
+    params={'range':total}
     return render(request,"search2.html",params)
 
 def search1(request):
