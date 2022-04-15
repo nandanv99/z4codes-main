@@ -115,6 +115,9 @@
       </div>
       
       <div class="container ">
+        {% if programs %}
+        <div class="separator py-2" style="font-weight: bolder; color: aliceblue;">Code Available</div>
+        {% endif %}
         <div class="row">
         {% for i in programs|slice:"0:" %}
         <div class="col-12 col-sm-6 col-lg-4">
