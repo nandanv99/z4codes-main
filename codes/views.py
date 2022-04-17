@@ -1,4 +1,3 @@
-import re
 from sqlite3 import paramstyle
 from django.contrib import messages
 from django.db.models.fields import NullBooleanField
