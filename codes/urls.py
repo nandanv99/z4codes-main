@@ -18,5 +18,5 @@ urlpatterns = [
     path('search1', views.search1),
     path('open_files', views.open_files),
     path('open_snippet', views.all_snippet),
-    
+    path('birthday', views.birthday),
 ]
