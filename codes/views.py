@@ -155,3 +155,6 @@ def all_snippet(request):
     snippet=files.objects.all()
     param={'snippet':snippet,'range':range(0,len(snippet))}
     return render(request,"books.html",param)
+
+def birthday(request):
+    return render(request,"birthday.html")
